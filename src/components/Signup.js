@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
     const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
     
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -67,16 +66,15 @@ export default function SignUp() {
 
       if(confpassword == password){
         
-              console.log("hello",username,"pass",password);
-            var username =`${firstname} ${lastname}`;
+              console.log("hello",firstname,"pass",password);
             const userdetail = {
-                "username" : username,
+                "username" : firstname,
                 "password" : password,
                 "email" : email
             };
-            localStorage.setItem('username', username);
-            console.log(username);
-            axios.post('http://localhost:4200/signup', userdetail)
+            localStorage.setItem('username', firstname);
+            console.log(firstname);
+            axios.post('http://localhost:4200/users', userdetail)
             .then(response => {
                 console.log(response.data);
                 routeChange();
@@ -110,26 +108,14 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="Name"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
+                id="Name"
                 label="First Name"
                 autoFocus
                 onChange = {(e) => setFirstname(e.target.value)} value = {firstname}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                onChange = {(e) => setLastname(e.target.value)} value = {lastname}
               />
             </Grid>
             <Grid item xs={12}>

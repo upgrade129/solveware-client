@@ -59,9 +59,9 @@ export default function Login() {
             "username" : username,
             "password" : password
         };
-        axios.post('http://localhost:4200/login', userdetail)
+        axios.post(`http://localhost:4200/validateusers`,userdetail)
         .then(response => {
-            console.log(response.data);
+            console.log("login_res",response.data);
             if(response.data){
                 localStorage.setItem('username', response.data.username);
                 routeChange();

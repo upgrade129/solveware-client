@@ -3,8 +3,7 @@ import './App.css';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
-import Userdetail from './components/Userdetails'
-import Comments from './components/Comments';
+import Cart from './components/Cart';
 
 
 import {
@@ -23,11 +22,8 @@ function App() {
           <Route path="/signup">
             <Signup />
           </Route>
-          <Route path="/userdetails">
-            <Userdetail />
-          </Route>
-          <Route path="/comments">
-            <Comments />
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route path="/">
             <Login />
